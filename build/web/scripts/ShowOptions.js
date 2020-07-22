@@ -93,6 +93,7 @@ function addProductFunction()
     var addPrd=$("#container")[0];
     addPrd.appendChild(newdiv);
     $("#productform").hide();
+    $("#productform").hide();
     $("#productform").fadeIn("3500");
 }
 
@@ -254,21 +255,23 @@ function loadItemId()
 function removeUserFunction()
 {
     removeForm();
-    var newdiv=document.createElement("div");
-    newdiv.setAttribute("id","productform");
     var reqstr="AdminControllerServlet?removeUser=user";
     requestt=$.get(reqstr,processResponsee);
-    newdiv.innerHTML+="<span id='addresp'></span>";
-    var updPrd=$("#container")[0];
-    updPrd.appendChild(newdiv);
     $("#productform").hide();
     $("#productform").fadeIn("3500");
 }
 
 function processResponsee(responseText)
 {
-    alert(responseText);
-    $("#addresp").html(responseText);
+    var newdiv=document.createElement("div");
+    newdiv.setAttribute("id","productform");
+    newdiv.innerHTML+="<span id='addresp'></span>";
+    var resp = responseText;
+    resp = resp.trim();
+    //$("#addresp").html(resp);
+    newdiv.innerHTML = resp;
+    var updPrd=$("#Users")[0];
+    updPrd.appendChild(newdiv);
 }
 function viewOrderFunction()
 {

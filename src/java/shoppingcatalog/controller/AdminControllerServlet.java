@@ -82,7 +82,7 @@ public class AdminControllerServlet extends HttpServlet {
               boolean ans=AdminDAO.deleteUser(userId);
               System.out.println("User deleted!");
               request.setAttribute("ans",ans);
-              rd=request.getRequestDispatcher("RemovedUser.jsp");
+              rd=request.getRequestDispatcher("removeUsers.jsp");
           }
         }
         }

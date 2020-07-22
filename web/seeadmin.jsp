@@ -23,14 +23,16 @@
         {
         StringBuffer displayBlock=new StringBuffer("<h1>Admin Options</h1><br><em>Select a category to take an action.</em><br>");
         displayBlock.append("<div id='container'> </div>");
-        
+        displayBlock.append("<div id='created' <br>");
         String []options={"Products","Users","View"};
         for(String option:options)
         {
             displayBlock.append("<p id='"+option+"'><strong><a href='#' onclick=getOptionNames('"+option+"')><span>+"+option+"</span></a></strong></p>");
+            displayBlock.append("<div id='"+option+"'></div>");
             System.out.println(option);
         }
-        displayBlock.append("<h4 id='logout'><a href='LoginnControllerServlet?logout=logout'>LogOut</a></h4>");
+        displayBlock.append("</div> ");
+        displayBlock.append("<h4 id='logout'><a href='StoreControllerServlet?logout=logout'>LogOut</a></h4>");
         out.println(displayBlock);
         System.out.println(displayBlock);
         }

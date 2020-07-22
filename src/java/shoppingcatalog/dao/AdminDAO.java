@@ -96,7 +96,7 @@ public class AdminDAO {
     
     public static boolean deleteUser(String userId)throws SQLException
     {
-        PreparedStatement ps5=DBConnection.getConnection().prepareStatement("delete from members where username=?");
+        PreparedStatement ps5=DBConnection.getConnection().prepareStatement("delete from members where username=? and membertype='CUSTOMER'");
         ps5.setString(1,userId);
         int ans=ps5.executeUpdate();
         return (ans!=0);

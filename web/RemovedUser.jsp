@@ -25,7 +25,7 @@
         Boolean ans=(Boolean)request.getAttribute("ans");
         if(ans==true)
         {
-            displayBlock.append("User Deleted successfully!");
+            displayBlock.append("User Deleted successfully!!");
         }
         else if(ans==false)
         {

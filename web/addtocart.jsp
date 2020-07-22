@@ -40,7 +40,7 @@
         displayBlock.append("<p><strong>Items in your cart:</strong>"+(count-1)+"</p>");
         displayBlock.append("<p><a href='StoreControllerServlet'>Continue Shopping</a>&nbsp;&nbsp;&nbsp;&nbsp;");
         displayBlock.append("<a href='placeorder.jsp'>Place Order</a></p></div>");
-        displayBlock.append("<h4 id='logout'><a href='myorders.jsp'>My Orders</a>&nbsp;&nbsp;&nbsp;<a href='LoginnControllerServlet?logout=logout'>LogOut</a></h4>");
+        displayBlock.append("<h4 id='logout'><a href='myorders.jsp'>My Orders</a>&nbsp;&nbsp;&nbsp;<a href='StoreControllerServlet?logout=logout'>LogOut</a></h4>");
         out.println(displayBlock);
         }
 %>

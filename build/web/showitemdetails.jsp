@@ -31,7 +31,7 @@
         displayBlock.append("<p><strong>Price:</strong>Rs"+item.getItemPrice()+"</p>");
         displayBlock.append("<p><a href='addtocart.jsp?itemid="+item.getItemId()+"'>Add to Cart</a></p></div>");
         //here despite of itemid we cant send anything else so we send the  apllication object in the session which is the servletContext obj. but that isnt feasible becaused we dont know if the user will purchase it or not.
-        displayBlock.append("<h4 id='logout'><a href='myorders.jsp'>My Orders</a>&nbsp;&nbsp;&nbsp;<a href='LoginnControllerServlet?logout=logout'>LogOut</a></h4>");
+        displayBlock.append("<h4 id='logout'><a href='myorders.jsp'>My Orders</a>&nbsp;&nbsp;&nbsp;<a href='StoreControllerServlet?logout=logout'>LogOut</a></h4>");
         out.println(displayBlock);
          
         

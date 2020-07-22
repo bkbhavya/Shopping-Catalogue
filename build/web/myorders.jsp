@@ -1,4 +1,4 @@
-<%@page import="shoppingcatalog.dao.StoreDAO"%>
+<%@page import="shoppingcatalog.dao.StoreDAO, java.text.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,shoppingcatalog.dto.*"%>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@
         {
          StringBuffer displayBlock=new StringBuffer("<h1>My Store- My Orders</h1>");
         displayBlock.append("<div style='float:left;'>");
-        displayBlock.append("<span> Items in your Cart<br/></span>");
+        //displayBlock.append("<span> Items in your Cart<br/></span>");
         ArrayList<OrderDTO> orderList=StoreDAO.getOrdersByCustomer(username);
         if(orderList.size()==0)
         {
@@ -32,17 +32,17 @@
         else
         {
             SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
-            displayBlock.append("<table boreder='1'>");
+            displayBlock.append("<table border='1'>");
             displayBlock.append("<tr><th>Order Id</th><th>Order Amount</th><th>Order Date</th></tr>");
             for(OrderDTO o:orderList)
             {
                String dateStr=sdf.format(o.getOrderDate());
-            displayBlock.append("<tr><td>"+o.getOrderId()+"</td><td>"+o.getOrderAmount()+"</td><td>"+dateStr+"</tr>");
+                displayBlock.append("<tr><td>"+o.getOrderId()+"</td><td>"+o.getOrderAmount()+"</td><td>"+dateStr+"</tr>");
             }  
         }
         displayBlock.append("</table>");
-        displayBlock.append("<p><a href='LoginnControllerServlet'>Show Categories</a></p></div>");
-        displayBlock.append("<h4 id='logout'><a href='LoginnControllerServlet?logout=logout'>LogOut</a></h4>");
+        displayBlock.append("<p><a href='StoreControllerServlet'>Show Categories</a></p></div>");
+        displayBlock.append("<h4 id='logout'><a href='StoreControllerServlet?logout=logout'>LogOut</a></h4>");
         out.println(displayBlock);
         }
 %>

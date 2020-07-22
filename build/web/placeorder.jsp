@@ -21,11 +21,11 @@
         }
         else 
         {
-        StringBuffer displayBlock=new StringBuffer("<h1>My-Cart Item Details</h1><br><em>You are viewing</em><br>");
+        StringBuffer displayBlock=new StringBuffer("<h1>My-Cart Item Details</h1><br>");
         displayBlock.append("<div style='float:left;'>");
         Enumeration en=sess.getAttributeNames();
         displayBlock.append("<table border='1'>");
-        displayBlock.append("<tr><th>Item Name</th></tr><th>Item Price</th></tr>");
+        displayBlock.append("<tr><th>Item Name</th><th>Item Price</th></tr>");
         double totalAmount=0.0;
         while(en.hasMoreElements())
         {
@@ -33,7 +33,7 @@
             if(o.equals("username")==false)
             {
             ItemDTO item =(ItemDTO)sess.getAttribute(o.toString());
-            displayBlock.append("<tr><td>"+item.getItemName()+"</td>"+item.getItemPrice()+"</td></tr>");
+            displayBlock.append("<tr><td>"+item.getItemName()+"</td><td>"+item.getItemPrice()+"</td></tr>");
             totalAmount+=item.getItemPrice();
             }
         }
@@ -41,7 +41,7 @@
         displayBlock.append("<p><strong>Total amount to be paid: Rs</strong>"+totalAmount+"</p>");
         displayBlock.append("<p><a href='StoreControllerServlet'>Continue Shopping</a>&nbsp;&nbsp;&nbsp;&nbsp;");
         displayBlock.append("<a href='checkout.jsp?totalAmount="+totalAmount+"'>CheckOut</a></p></div>");
-       displayBlock.append("<h4 id='logout'><a href='myorders.jsp'>My Orders</a>&nbsp;&nbsp;&nbsp;<a href='LoginnControllerServlet?logout=logout'>LogOut</a></h4>");
+       displayBlock.append("<h4 id='logout'><a href='myorders.jsp'>My Orders</a>&nbsp;&nbsp;&nbsp;<a href='StoreControllerServlet?logout=logout'>LogOut</a></h4>");
         out.println(displayBlock);
         }
 %>

@@ -53,19 +53,46 @@ function doTask(){
         ans=ans.trim();
         if(ans==="uap")
         {
-            $("#regresult").html("This user already exists.<br> Please login.<a href='login.html'>Login here</a>").css("color","red");
+            $("#regresult").show(function(){
+                $("#regresult").html("This user already exists.<br> Please login.<a href='login.html'>Login here</a>").css("color","red");
+            });
         }
         else if(ans==="failure"){
-            $("#regresult").html("Registration failed.<br> Please try again.<a href='register.html'>Register Here</a>").css("color","red");
+            $("#regresult").show(function(){
+                $("#regresult").html("Registration failed.<br> Please try again.<a href='register.html'>Register Here</a>").css("color","red");
+            });
         }
         else if(ans==="success"){
-            $("#regresult").html("Registration Successful.You can now login.<br><a href='login.html'>Login Here</a>").css("color","green");
-            
+            $("#regresult").show(function(){
+                $("#regresult").html("Registration Successful.You can now login.<br><a href='login.html'>Login Here</a>").css("color","green");
+            });
         }
         else
         {
-            $("#regresult").text("Some error in server. Try again later.").css("color","red");
+            $("#regresult").show(function(){
+                $("#regresult").text("Some error in server. Try again later.").css("color","red");
+            });
         }
         
     }
+    function doName(){
+    if($("#regresult").is(":hidden"))
+{
+    return;
+}
+else
+{
+$("#regresult").hide();
+}
+}
+function doPass(){
+if($("#regresult").is(":hidden"))
+{
+    return;
+}
+else
+{
+$("#regresult").hide();
+}
+}
     

@@ -21,21 +21,22 @@
         }
         else 
         {
-        StringBuffer displayBlock=new StringBuffer("<div float='left padding-left='12px' border='solid 2px red'");
+        StringBuffer displayBlock=new StringBuffer("<div float='left' padding-left='12px' border='solid 2px red'>");
         ArrayList<String> users=(ArrayList<String>)request.getAttribute("users");
         Boolean ans=(Boolean)request.getAttribute("ans");
         if(ans==null)
         {
-            displayBlock.append("<table border='2'><tr><th>Users Name</th><th>Remove Users</th></tr>");
+            displayBlock.append("<table border='solid 2px'><tr><th>Users Name</th><th>Remove Users</th></tr>");
             for(String user:users)
             {
-                displayBlock.append("<tr><td>"+user+"</td><td><a href=\"AdminControllerServlet?userId="+user+"\">Remove</a></td></tr>");
+                displayBlock.append("<tr><td>"+user+"</td><td><a href='AdminControllerServlet?userId="+user+"'>Remove</a></td></tr>");
             }
             displayBlock.append("</table></div>");
         }
         else if(ans==true)
         {
             displayBlock.append("<span> User Deleted successfully!</span>");
+            displayBlock.append("</div>");
         }
         else if(ans==false)
         {

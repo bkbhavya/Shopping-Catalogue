@@ -119,7 +119,7 @@ public static ArrayList<OrderDTO> getOrdersByCustomer(String custname)throws SQL
 {
     ps6.setString(1,custname);
     ResultSet rs=ps6.executeQuery();
-    ArrayList<OrderDTO> orderList=new ArrayList<OrderDTO>();
+    ArrayList<OrderDTO> orderList=new ArrayList<>();
     while(rs.next())
     {
         OrderDTO order=new OrderDTO();

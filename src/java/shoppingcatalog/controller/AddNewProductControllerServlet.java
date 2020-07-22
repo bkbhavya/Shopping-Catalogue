@@ -80,7 +80,7 @@ public class AddNewProductControllerServlet extends HttpServlet {
                         File myfile=new File(imgpath+"\\"+fileName);
                         System.out.println("File will be created at:"+myfile.getAbsolutePath());
                         System.out.println("File created:"+myfile.createNewFile());
-                        item.write(myfile);
+                        item.write(myfile);//saves the binary data into an image over the defined area.
                         System.out.println("File created at:"+myfile.getAbsolutePath());
 
                     }

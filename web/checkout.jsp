@@ -27,7 +27,28 @@
         displayBlock.append("<span> <strong>Thank you for shopping with us!</strong><br/></span>");
         displayBlock.append("<p>Your total amount to be paid Rs "+totalAmount+" is processing.</p>");
         Enumeration en=sess.getAttributeNames();
-        ArrayList<ItemDTO> item=new ArrayList<ItemDTO>();
+        ArrayList<ItemDTO> itemList=new ArrayList<ItemDTO>();
+        while(en.hasMoreElements()){
+            Object o=en.nextElement();
+            if(o.equals("username")==false){
+                ItemDTO item=(ItemDTO)sess.getAttribute(o.toString());
+                itemList.add(item);
+                sess.removeAttribute(o.toString());
+            }  
+        }
+        try
+              {
+              StoreDAO.addOrder(username, itemList, Double.parseDouble(totalAmount));
+              displayBlock.append("<p><strong>Order saved in the database:</strong></p>");
+              }
+              catch(Exception e){
+                  System.out.println("Exception from StoreModel.addOrder:"+e);
+              }
+              displayBlock.append("<p><a href='StoreControllerServlet'>Shop Again</a>&nbsp;&nbsp;&nbsp;&nbsp;");
+              displayBlock.append("<a href='myorders.jsp'>My Orders</a></p></div>");
+              displayBlock.append("<h4 id='logout'><a href='myorders.jsp'>My Orders</a>&nbsp;&nbsp;&nbsp;<a href='StoreControllerServlet?logout=logout'>Logout</a></h4>");
+              out.println(displayBlock);
+
         }
 %>
     </body>
